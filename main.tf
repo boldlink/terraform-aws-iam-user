@@ -21,8 +21,3 @@ resource "aws_iam_user_policy" "main" {
   policy      = var.user_policy
   name_prefix = var.policy_name_prefix
 }
-
-#resource "aws_iam_user_policy_attachment" "main" {
-#  user       = aws_iam_user.main.name
-#  policy_arn = aws_iam_policy.main.arn
-#}
