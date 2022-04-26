@@ -1,12 +1,12 @@
 locals {
   name          = "boldlink"
   environment   = "development"
-  policy_name   = "development-policy-${uuid()}"
-  iam_user_name = "test-user-${uuid()}"
+  policy_name   = "development-policy"
+  iam_user_name = "test-user"
 }
 
 module "iam_user" {
-  source        = "./.."
+  source        = "boldlink/iam-user/aws"
   iam_user_name = local.iam_user_name
   name          = local.name
   force_destroy = true
