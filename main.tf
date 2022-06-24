@@ -1,6 +1,8 @@
+######
 resource "aws_iam_user" "main" {
-  name                 = var.iam_user_name
+  name                 = var.user_name
   path                 = var.path
+  force_destroy        = var.force_destroy
   permissions_boundary = var.permissions_boundary
 
   tags = {
@@ -9,15 +11,25 @@ resource "aws_iam_user" "main" {
   }
 }
 
-resource "aws_iam_access_key" "main" {
-  user    = aws_iam_user.main.name
-  pgp_key = var.pgp_key
-  status  = var.iam_access_key_status
-}
-
 resource "aws_iam_user_policy" "main" {
-  name        = var.policy_name
+  count       = var.user_policy != null ? 1 : 0
+  name        = var.user_name
   user        = aws_iam_user.main.name
   policy      = var.user_policy
   name_prefix = var.policy_name_prefix
+}
+
+resource "aws_iam_user_login_profile" "main" {
+  user                    = aws_iam_user.main.name
+  pgp_key                 = var.pgp_key
+  password_length         = var.password_length
+  password_reset_required = var.password_reset_required
+
+  lifecycle {
+    ignore_changes = [
+      password_length,
+      password_reset_required,
+      pgp_key,
+    ]
+  }
 }
