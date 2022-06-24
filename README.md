@@ -29,6 +29,7 @@ module "minimal_example" {
   force_destroy = true
   environment   = local.environment
 }
+```
 
 ## Documentation
 
