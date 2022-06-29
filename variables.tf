@@ -1,6 +1,8 @@
-variable "iam_user_name" {
+############
+variable "name" {
   type        = string
-  description = "(Required) The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both `TESTUSER` and `testuser`."
+  description = "The name of the IAM user to create."
+  default     = null
 }
 
 variable "path" {
@@ -24,11 +26,6 @@ variable "force_destroy" {
 variable "user_policy" {
   type        = string
   description = "(Required) The policy document. This is a JSON formatted string."
-}
-
-variable "policy_name" {
-  type        = string
-  description = "(Optional) The name of the policy. If omitted, Terraform will assign a random, unique name."
   default     = null
 }
 
@@ -38,30 +35,29 @@ variable "policy_name_prefix" {
   default     = null
 }
 
-variable "iam_access_key_status" {
-  type        = string
-  description = "(Optional) Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`."
-  default     = "Active"
-}
-
 variable "pgp_key" {
   type        = string
-  description = "(Optional) Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute."
+  description = "(Optional) Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Only applies on resource creation. Drift detection is not possible with this argument."
   default     = null
 }
 
-/*
-tags
-*/
-
-variable "name" {
-  type        = string
-  description = "name of the stack/resource tag"
-  default     = null
+variable "password_length" {
+  type        = number
+  description = "(Optional) The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is 20."
+  default     = 20
 }
 
-variable "environment" {
-  type        = string
-  description = "The environment in which this resource is deployed to"
-  default     = null
+variable "password_reset_required" {
+  type        = bool
+  description = " (Optional) Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation."
+  default     = true
+}
+
+##########
+## tags
+##########
+variable "tags" {
+  type        = map(string)
+  description = "The map of tags to apply to the resources"
+  default     = {}
 }
