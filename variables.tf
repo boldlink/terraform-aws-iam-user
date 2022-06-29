@@ -56,8 +56,8 @@ variable "password_reset_required" {
 ##########
 ## tags
 ##########
-variable "environment" {
-  type        = string
-  description = "The environment in which this resource is deployed to"
-  default     = null
+variable "tags" {
+  type        = map(string)
+  description = "The map of tags to apply to the resources"
+  default     = {}
 }

@@ -4,11 +4,7 @@ resource "aws_iam_user" "main" {
   path                 = var.path
   force_destroy        = var.force_destroy
   permissions_boundary = var.permissions_boundary
-
-  tags = {
-    name        = var.name
-    environment = var.environment
-  }
+  tags                 = var.tags
 }
 
 resource "aws_iam_user_policy" "main" {

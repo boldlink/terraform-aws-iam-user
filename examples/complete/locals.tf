@@ -1,6 +1,5 @@
 ##### creation of users
 locals {
-  environment = "development"
   users = [
     "example.user0",
     "example.user5"

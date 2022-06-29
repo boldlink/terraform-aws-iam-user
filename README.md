@@ -13,9 +13,9 @@ Example available [here](https://github.com/boldlink/terraform-aws-iam-user/tree
 *NOTE*: These examples use the latest version of this module
 
 ```hcl
+#### Minimal example
 locals {
-  environment  = "development"
-  user_names = [
+  users = [
     "minimal.example1",
     "minimal.example2"
   ]
@@ -23,11 +23,9 @@ locals {
 
 module "minimal_example" {
   source        = "../../"
-  count         = length(local.user_names)
-  user_name     = element(local.user_names, count.index)
-  name          = element(local.user_names, count.index)
+  count         = length(local.users)
+  name          = element(local.users, count.index)
   force_destroy = true
-  environment   = local.environment
 }
 ```
 
@@ -66,7 +64,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | The environment in which this resource is deployed to | `string` | `null` | no |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | (Optional, default false) When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy` a user with non-Terraform-managed access keys and login profile will fail to be destroyed. | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the IAM user to create. | `string` | `null` | no |
 | <a name="input_password_length"></a> [password\_length](#input\_password\_length) | (Optional) The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is 20. | `number` | `20` | no |
@@ -75,6 +72,7 @@ No modules.
 | <a name="input_permissions_boundary"></a> [permissions\_boundary](#input\_permissions\_boundary) | (Optional) The ARN of the policy that is used to set the permissions boundary for the user. | `string` | `null` | no |
 | <a name="input_pgp_key"></a> [pgp\_key](#input\_pgp\_key) | (Optional) Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Only applies on resource creation. Drift detection is not possible with this argument. | `string` | `null` | no |
 | <a name="input_policy_name_prefix"></a> [policy\_name\_prefix](#input\_policy\_name\_prefix) | (Optional, Forces new resource) Creates a unique name beginning with the specified prefix. Conflicts with `name`. | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | The map of tags to apply to the resources | `map(string)` | `{}` | no |
 | <a name="input_user_policy"></a> [user\_policy](#input\_user\_policy) | (Required) The policy document. This is a JSON formatted string. | `string` | `null` | no |
 
 ## Outputs
