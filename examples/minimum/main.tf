@@ -1,7 +1,7 @@
 #### Minimal example
 locals {
   environment = "development"
-  user_names = [
+  users = [
     "minimal.example1",
     "minimal.example2"
   ]
@@ -9,9 +9,8 @@ locals {
 
 module "minimal_example" {
   source        = "../../"
-  count         = length(local.user_names)
-  user_name     = element(local.user_names, count.index)
-  name          = element(local.user_names, count.index)
+  count         = length(local.users)
+  name          = element(local.users, count.index)
   force_destroy = true
   environment   = local.environment
 }

@@ -1,13 +1,8 @@
 ############
-variable "user_name" {
+variable "name" {
   type        = string
   description = "The name of the IAM user to create."
   default     = null
-
-  validation {
-    condition     = can(regex("^[\\w]+(\\.[\\w]+)$", var.user_name))
-    error_message = "The name must be in the format `first_name.last_name`."
-  }
 }
 
 variable "path" {
@@ -61,13 +56,6 @@ variable "password_reset_required" {
 ##########
 ## tags
 ##########
-
-variable "name" {
-  type        = string
-  description = "name of the stack/resource tag"
-  default     = null
-}
-
 variable "environment" {
   type        = string
   description = "The environment in which this resource is deployed to"

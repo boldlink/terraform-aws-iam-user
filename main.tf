@@ -1,6 +1,6 @@
 ######
 resource "aws_iam_user" "main" {
-  name                 = var.user_name
+  name                 = var.name
   path                 = var.path
   force_destroy        = var.force_destroy
   permissions_boundary = var.permissions_boundary
@@ -13,7 +13,7 @@ resource "aws_iam_user" "main" {
 
 resource "aws_iam_user_policy" "main" {
   count       = var.user_policy != null ? 1 : 0
-  name        = var.user_name
+  name        = var.name
   user        = aws_iam_user.main.name
   policy      = var.user_policy
   name_prefix = var.policy_name_prefix

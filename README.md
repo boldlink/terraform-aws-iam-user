@@ -68,14 +68,13 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment in which this resource is deployed to | `string` | `null` | no |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | (Optional, default false) When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy` a user with non-Terraform-managed access keys and login profile will fail to be destroyed. | `bool` | `false` | no |
-| <a name="input_name"></a> [name](#input\_name) | name of the stack/resource tag | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | The name of the IAM user to create. | `string` | `null` | no |
 | <a name="input_password_length"></a> [password\_length](#input\_password\_length) | (Optional) The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is 20. | `number` | `20` | no |
 | <a name="input_password_reset_required"></a> [password\_reset\_required](#input\_password\_reset\_required) | (Optional) Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. | `bool` | `true` | no |
 | <a name="input_path"></a> [path](#input\_path) | (Optional, default `/`) Path in which to create the user. | `string` | `"/"` | no |
 | <a name="input_permissions_boundary"></a> [permissions\_boundary](#input\_permissions\_boundary) | (Optional) The ARN of the policy that is used to set the permissions boundary for the user. | `string` | `null` | no |
 | <a name="input_pgp_key"></a> [pgp\_key](#input\_pgp\_key) | (Optional) Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Only applies on resource creation. Drift detection is not possible with this argument. | `string` | `null` | no |
 | <a name="input_policy_name_prefix"></a> [policy\_name\_prefix](#input\_policy\_name\_prefix) | (Optional, Forces new resource) Creates a unique name beginning with the specified prefix. Conflicts with `name`. | `string` | `null` | no |
-| <a name="input_user_name"></a> [user\_name](#input\_user\_name) | The name of the IAM user to create. | `string` | `null` | no |
 | <a name="input_user_policy"></a> [user\_policy](#input\_user\_policy) | (Required) The policy document. This is a JSON formatted string. | `string` | `null` | no |
 
 ## Outputs
