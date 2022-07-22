@@ -46,7 +46,7 @@ module "minimal_example" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.20.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
 
 ## Modules
 
@@ -57,6 +57,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_iam_user.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user_group_membership.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_group_membership) | resource |
 | [aws_iam_user_login_profile.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_login_profile) | resource |
 | [aws_iam_user_policy.main](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy) | resource |
 
@@ -65,6 +66,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | (Optional, default false) When destroying this user, destroy even if it has non-Terraform-managed IAM access keys, login profile or MFA devices. Without `force_destroy` a user with non-Terraform-managed access keys and login profile will fail to be destroyed. | `bool` | `false` | no |
+| <a name="input_groups"></a> [groups](#input\_groups) | A list of IAM Groups to add the user to | `list(string)` | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the IAM user to create. | `string` | `null` | no |
 | <a name="input_password_length"></a> [password\_length](#input\_password\_length) | (Optional) The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is 20. | `number` | `20` | no |
 | <a name="input_password_reset_required"></a> [password\_reset\_required](#input\_password\_reset\_required) | (Optional) Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. | `bool` | `true` | no |
