@@ -29,3 +29,10 @@ resource "aws_iam_user_login_profile" "main" {
     ]
   }
 }
+
+### For controlling group membership at the user stack level. Has no exclusivity
+resource "aws_iam_user_group_membership" "main" {
+  count  = length(var.groups) > 0 ? 1 : 0
+  user   = aws_iam_user.main.name
+  groups = var.groups
+}

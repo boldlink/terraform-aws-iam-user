@@ -35,6 +35,12 @@ variable "policy_name_prefix" {
   default     = null
 }
 
+variable "groups" {
+  type        = list(string)
+  description = "A list of IAM Groups to add the user to"
+  default     = []
+}
+
 variable "pgp_key" {
   type        = string
   description = "(Optional) Either a base-64 encoded PGP public key, or a keybase username in the form keybase:username. Only applies on resource creation. Drift detection is not possible with this argument."
