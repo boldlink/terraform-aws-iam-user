@@ -19,22 +19,12 @@ output "unique_id" {
   value       = aws_iam_user.main.unique_id
 }
 
-output "user_policy_id" {
-  description = "The user policy ID, in the form of `user_name:user_policy_name`"
-  value       = aws_iam_user_policy.main.*.id
-}
-
-output "user_policy_name" {
-  description = "The name of the policy (always set)."
-  value       = aws_iam_user_policy.main.*.name
-}
-
 output "encrypted_password" {
   description = "The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import."
-  value       = aws_iam_user_login_profile.main.encrypted_password
+  value       = aws_iam_user_login_profile.main.*.encrypted_password
 }
 
 output "key_fingerprint" {
   description = "The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on Terraform resource creation, not import."
-  value       = aws_iam_user_login_profile.main.key_fingerprint
+  value       = aws_iam_user_login_profile.main.*.key_fingerprint
 }

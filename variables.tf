@@ -1,4 +1,5 @@
 ############
+
 variable "name" {
   type        = string
   description = "The name of the IAM user to create."
@@ -23,22 +24,16 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "user_policy" {
-  type        = string
-  description = "(Required) The policy document. This is a JSON formatted string."
-  default     = null
-}
-
-variable "policy_name_prefix" {
-  type        = string
-  description = "(Optional, Forces new resource) Creates a unique name beginning with the specified prefix. Conflicts with `name`."
-  default     = null
-}
-
 variable "groups" {
   type        = list(string)
   description = "A list of IAM Groups to add the user to"
   default     = []
+}
+
+variable "create_iam_user_login_profile" {
+  description = "Whether to create a login profile for IAM user or not"
+  type        = bool
+  default     = false
 }
 
 variable "pgp_key" {
@@ -58,10 +53,6 @@ variable "password_reset_required" {
   description = " (Optional) Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation."
   default     = true
 }
-
-##########
-## tags
-##########
 variable "tags" {
   type        = map(string)
   description = "The map of tags to apply to the resources"
