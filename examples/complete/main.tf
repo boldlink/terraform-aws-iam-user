@@ -11,14 +11,12 @@ module "groups" {
 
 ### Users
 module "complete_example" {
-  source   = "../../"
-  for_each = local.names
-  name     = each.key
-  groups   = [each.value]
-
-  tags = {
-    Name        = each.key
-    Environment = "examples"
-  }
-  depends_on = [module.groups]
+  #checkov:skip=CKV2_AWS_22: "Ensure an IAM User does not have access to the console"
+  source                        = "../../"
+  for_each                      = local.names
+  name                          = each.key
+  groups                        = [each.value]
+  create_iam_user_login_profile = var.create_iam_user_login_profile
+  tags                          = merge({ name = each.key }, var.tags)
+  depends_on                    = [module.groups]
 }

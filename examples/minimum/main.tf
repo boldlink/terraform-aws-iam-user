@@ -1,14 +1,7 @@
 #### Minimal example
-locals {
-  users = [
-    "minimal.example1",
-    "minimal.example2"
-  ]
-}
-
 module "minimal_example" {
-  source        = "../../"
-  count         = length(local.users)
-  name          = element(local.users, count.index)
-  force_destroy = true
+  #checkov:skip=CKV2_AWS_22: "Ensure an IAM User does not have access to the console"
+  source = "../../"
+  name   = var.name
+  tags   = merge({ name = var.name }, var.tags)
 }
