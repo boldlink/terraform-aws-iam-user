@@ -12,27 +12,23 @@
 # AWS IAM User Terraform module
 
 ## Description
-This module creates an AWS IAM user with policy defining the permissions the user has.
+This module creates an AWS IAM user, group membership and a login profile resources.
 
-Example available [here](https://github.com/boldlink/terraform-aws-iam-user/tree/main/examples)
+### Why choose this module over the standard resources
+- Default and custom configurations included in this module have been validated by Checkov. This ensures that the configurations adhere to best practices and security standards, reducing the risk of misconfiguration and security vulnerabilities.
+
+- This module has elaborate examples that you can use to setup your iam-user within a very short time.
+
+Example available [here](./examples)
 
 ## Usage
 *NOTE*: These examples use the latest version of this module
 
 ```hcl
-#### Minimal example
-locals {
-  users = [
-    "minimal.example1",
-    "minimal.example2"
-  ]
-}
-
 module "minimal_example" {
-  source        = "../../"
-  count         = length(local.users)
-  name          = element(local.users, count.index)
-  force_destroy = true
+  source = "boldlink/iam-user/aws"
+  name   = var.name
+  tags   = merge({ name = var.name }, var.tags)
 }
 ```
 
