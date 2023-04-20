@@ -4,6 +4,7 @@
 [![Build Status](https://github.com/boldlink/terraform-aws-iam-user/actions/workflows/release.yaml/badge.svg)](https://github.com/boldlink/terraform-aws-iam-user/actions)
 [![Build Status](https://github.com/boldlink/terraform-aws-iam-user/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/boldlink/terraform-aws-iam-user/actions)
 [![Build Status](https://github.com/boldlink/terraform-aws-iam-user/actions/workflows/pr-labeler.yaml/badge.svg)](https://github.com/boldlink/terraform-aws-iam-user/actions)
+[![Build Status](https://github.com/boldlink/terraform-aws-iam-user/actions/workflows/module-examples-tests.yaml/badge.svg)](https://github.com/boldlink/terraform-aws-iam-user/actions)
 [![Build Status](https://github.com/boldlink/terraform-aws-iam-user/actions/workflows/checkov.yaml/badge.svg)](https://github.com/boldlink/terraform-aws-iam-user/actions)
 [![Build Status](https://github.com/boldlink/terraform-aws-iam-user/actions/workflows/auto-badge.yaml/badge.svg)](https://github.com/boldlink/terraform-aws-iam-user/actions)
 
