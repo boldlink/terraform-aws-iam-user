@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - Feat: Add permissions boundary
+- fix: CKV_AWS_273 #Ensure access is controlled through SSO and not AWS IAM defined users
+
+## [1.0.4] - 2023-04-19
+### Changes
+- fix: CKV_AWS_40: "Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)
+- fix: CKV2_AWS_22: "Ensure an IAM User does not have access to the console"
 
 ## [1.0.3] - 2022-07-22
 ### Changes
@@ -32,8 +38,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Description
 - First commit
 
-[Unreleased]: https://github.com/boldlink/terraform-aws-iam-user/compare/1.0.2...HEAD
+[Unreleased]: https://github.com/boldlink/terraform-aws-iam-user/compare/1.0.4...HEAD
 [1.0.0]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.0
 [1.0.1]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.1
 [1.0.2]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.2
 [1.0.3]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.3
+[1.0.4]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.4

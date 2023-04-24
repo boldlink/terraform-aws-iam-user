@@ -12,6 +12,9 @@
 
 # Terraform module example of the least configuration
 
+## Checkov Alerts:
+In this example the alert `CKV2_AWS_22: "Ensure an IAM User does not have access to the console"` has been skipped since the resource `aws_iam_user_login_profile` has been disabled.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -36,7 +39,10 @@ No resources.
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_name"></a> [name](#input\_name) | The name of the IAM user to create. | `string` | `"minimum.example"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | The map of tags to apply to the resources | `map(string)` | <pre>{<br>  "Department": "DevOps",<br>  "Environment": "example",<br>  "LayerId": "Example",<br>  "LayerName": "Example",<br>  "Owner": "Boldlink",<br>  "Project": "Examples",<br>  "user::CostCenter": "terraform-registry"<br>}</pre> | no |
 
 ## Outputs
 

@@ -1,0 +1,8 @@
+directory:
+- .
+download-external-modules: false
+evaluate-variables: true
+external-modules-download-path: .external_modules
+framework: all
+skip-check:
+- CKV_AWS_273 #Ensure access is controlled through SSO and not AWS IAM defined users
