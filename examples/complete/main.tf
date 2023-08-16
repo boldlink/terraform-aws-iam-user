@@ -1,6 +1,7 @@
 ##### group and user
 ### Group
 module "groups" {
+  #checkov:skip=CKV_TF_1:Ensure Terraform module sources use a commit hash
   source       = "boldlink/iam-group/aws"
   version      = "1.0.4"
   for_each     = local.names
