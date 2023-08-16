@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Feat: Add permissions boundary
 - fix: CKV_AWS_273 #Ensure access is controlled through SSO and not AWS IAM defined users
+- fix: CKV_TF_1:Ensure Terraform module sources use a commit hash
+
+## [1.0.5] - 2023-04-16
+- fix: added CKV_TF_1 exception to complete example
 
 ## [1.0.4] - 2023-04-19
 ### Changes
@@ -38,9 +42,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Description
 - First commit
 
-[Unreleased]: https://github.com/boldlink/terraform-aws-iam-user/compare/1.0.4...HEAD
+[Unreleased]: https://github.com/boldlink/terraform-aws-iam-user/compare/1.0.5...HEAD
+
 [1.0.0]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.0
 [1.0.1]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.1
 [1.0.2]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.2
 [1.0.3]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.3
 [1.0.4]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.4
+[1.0.5]: https://github.com/boldlink/terraform-aws-iam-user/releases/tag/1.0.5
